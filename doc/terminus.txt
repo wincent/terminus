@@ -6,10 +6,11 @@ CONTENTS                                                    *terminus-contents*
 2. Installation     |terminus-installation|
 3. Options          |terminus-options|
 4. Overrides        |terminus-overrides|
-5. Website          |terminus-website|
-6. License          |terminus-license|
-7. Authors          |terminus-authors|
-8. History          |terminus-history|
+5. Troubleshooting  |terminus-troubleshooting|
+6. Website          |terminus-website|
+7. License          |terminus-license|
+8. Authors          |terminus-authors|
+9. History          |terminus-history|
 
 
 INTRO                                                          *terminus-intro*
@@ -153,6 +154,36 @@ To override any of these choices, you can place overrides in an
 
   " Override Terminus' 'autoread' setting.
   set noautoread
+
+
+TROUBLESHOOTING                                      *terminus-troubleshooting*
+
+Some features work in iTerm but not in Apple's Terminal.app ~
+
+The following features are known to work in iTerm but not in Apple's
+Terminal.app due to limitations in the latter:
+
+- Cursor shape changes.
+- |FocusGained| and |FocusLost| events.
+- Improved mouse support.
+
+Upgrading to iTerm is strongly recommended.
+
+Focus events aren't working inside tmux prior to 1.8 ~
+
+tmux only added support for per-pane focus events in version 1.8.
+
+Focus events aren't working inside tmux 1.9 and up ~
+
+In tmux 1.9, focus events aren't reported unless the `focus-events` option is
+set to "on" in the `~/.tmux.conf` file: >
+
+  set -g focus-events on
+
+Mouse support and other features aren't working in tmux ~
+
+In the iTerm settings, ensure that "Enable mouse reporting" is enabled, and
+the "Report Terminal Type" setting is set to "xterm-256color".
 
 
 WEBSITE                                                      *terminus-website*

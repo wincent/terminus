@@ -185,6 +185,18 @@ Mouse support and other features aren't working in tmux ~
 In the iTerm settings, ensure that "Enable mouse reporting" is enabled, and
 the "Report Terminal Type" setting is set to "xterm-256color".
 
+I can't copy text to the clipboard ~
+
+In the iTerm settings, ensure that "Copy to pasteboard on selection" is
+disabled (under "Selection" in the "General" section of the preferences), then
+hold down the Option key when making a selection, then press Command-C to
+copy.
+
+For seamless integration between the local system clipboard and terminal-based
+processes (even processes running on remote systems via SSH, inside tmux,
+inside Vim etc), consider using Clipper (https://github.com/wincent/clipper),
+along with the vim-clipper plug-in (https://github.com/wincent/vim-clipper).
+
 
 WEBSITE                                                      *terminus-website*
 

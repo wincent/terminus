@@ -197,6 +197,14 @@ processes (even processes running on remote systems via SSH, inside tmux,
 inside Vim etc), consider using Clipper (https://github.com/wincent/clipper),
 along with the vim-clipper plug-in (https://github.com/wincent/vim-clipper).
 
+The cursor is hard to see in insert mode ~
+
+In insert mode, the cursor becomes a narrow bar, which may be hard to see
+depending on your color scheme and other settings. Reducing visual clutter may
+be helpful in this case. For example, you might turn off 'cursorline' and
+'cursorcolumn' when in insert mode (sample configuration from my dotfiles:
+https://wt.pe/g).
+
 
 WEBSITE                                                      *terminus-website*
 

@@ -23,7 +23,7 @@ let s:tmux=exists('$TMUX')
 let s:xterm=&term =~# 'xterm'
 
 " Change shape of cursor in insert mode in iTerm 2.
-let s:shape=exists('g:TerminusCursorShape') ? g:TerminusCursorShape : 1
+let s:shape=get(g:, 'TerminusCursorShape', 1)
 if s:shape
   if s:iterm
     let s:start_insert="\<Esc>]50;CursorShape=1\x7"
@@ -39,7 +39,7 @@ if s:shape
   endif
 endif
 
-let s:mouse=exists('g:TerminusMouse') ? g:TerminusMouse : 1
+let s:mouse=get(g:, 'TerminusMouse', 1)
 if s:mouse
   if has('mouse')
     set mouse=a
@@ -53,7 +53,7 @@ if s:mouse
   endif
 endif
 
-let s:focus=exists('g:TerminusFocusReporting') ? g:TerminusFocusReporting : 1
+let s:focus=get(g:, 'TerminusFocusReporting', 1)
 if s:focus
   if has('autocmd')
     augroup Terminus
@@ -81,7 +81,7 @@ if s:focus
   vnoremap <silent> <f21> <Esc>:silent doautocmd FocusGained %<cr>gv
 endif
 
-let s:paste=exists('g:TerminusBracketedPaste') ? g:TerminusBracketedPaste : 1
+let s:paste=get(g:, 'TerminusBracketedPaste', 1)
 if s:paste
   " Make use of Xterm "bracketed paste mode". See:
   "  - http://www.xfree86.org/current/ctlseqs.html#Bracketed%20Paste%20Mode

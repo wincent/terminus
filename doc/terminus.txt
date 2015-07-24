@@ -9,8 +9,9 @@ CONTENTS                                                    *terminus-contents*
 5. Troubleshooting  |terminus-troubleshooting|
 6. Website          |terminus-website|
 7. License          |terminus-license|
-8. Authors          |terminus-authors|
-9. History          |terminus-history|
+8. Development      |terminus-development|
+9. Authors          |terminus-authors|
+10. History         |terminus-history|
 
 
 INTRO                                                          *terminus-intro*
@@ -291,6 +292,39 @@ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
 CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
+
+
+DEVELOPMENT                                              *terminus-development*
+
+Contributing patches ~
+
+Patches can be sent via mail to greg@hurrell.net, or as GitHub pull requests
+at: https://github.com/wincent/terminus/pulls
+
+Cutting a new release ~
+
+At the moment the release process is manual:
+
+- Perform final sanity checks and manual testing
+- Update the |terminus-history| section of the documentation
+- Verify clean work tree: >
+
+    git status
+
+- Tag the release: >
+
+    git tag -s - "$VERSION release" $VERSION
+
+- Publish the code: >
+
+    git push origin master --follow-tags
+    git push github master --follow-tags
+
+- Produce the release archive: >
+
+    git archive -o terminus-$VERSION.zip HEAD -- .
+
+- Upload to http://www.vim.org/scripts/script.php?script_id=5216
 
 
 AUTHORS                                                      *terminus-authors*

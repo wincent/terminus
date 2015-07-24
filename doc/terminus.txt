@@ -27,7 +27,8 @@ particularly when using tmux (https://tmux.github.io/) and iTerm
 1. Cursor shape change in insert mode ~
 
 In insert mode, the cursor shape changes to a thin vertical bar. On leaving
-inset mode, it reverts to the standard "block" shape.
+insert mode, it reverts to the standard "block" shape. Configuration options
+are provided to select among vertical bar, block, and "underline" shapes.
 
 2. Improved mouse support ~
 
@@ -81,6 +82,48 @@ OPTIONS                                                      *terminus-options*
 
     let g:TerminusCursorShape=0
 <
+                                                  *g:TerminusInsertCursorShape*
+  |g:TerminusInsertCursorShape|                             number (default: 1)
+
+  Controls the shape of the cursor in insert mode. Possible values are:
+
+  - 0: "block" shape
+  - 1: "bar" shape
+  - 2: "underline" shape
+
+  To override the default, set a new value in your |.vimrc|: >
+
+    let g:TerminusInsertCursorShape=0
+<
+  The value set here is passed directly through to iTerm, so if future
+  versions of iTerm start to support other possible shapes, Terminus will
+  support those automatically. (And conversely, if you supply an invalid
+  value, iTerm may have undefined behavior.)
+
+  Note: has no effect if cursor shape changing is disabled via the
+  |g:TerminusCursorShape| setting.
+
+                                                  *g:TerminusNormalCursorShape*
+  |g:TerminusNormalCursorShape|                             number (default: 0)
+
+  Controls the shape of the cursor in normal mode. Possible values are:
+
+  - 0: "block" shape
+  - 1: "bar" shape
+  - 2: "underline" shape
+
+  To override the default, set a new value in your |.vimrc|: >
+
+    let g:TerminusNormalCursorShape=2
+<
+  The value set here is passed directly through to iTerm, so if future
+  versions of iTerm start to support other possible shapes, Terminus will
+  support those automatically. (And conversely, if you supply an invalid
+  value, iTerm may have undefined behavior.)
+
+  Note: has no effect if cursor shape changing is disabled via the
+  |g:TerminusCursorShape| setting.
+
                                                               *g:TerminusMouse*
   |g:TerminusMouse|                                         boolean (default: 1)
 
@@ -254,10 +297,15 @@ Terminus is written and maintained by Greg Hurrell <greg@hurrell.net>.
 
 HISTORY                                                      *terminus-history*
 
+0.2 (not yet released)
+
+- Added |g:TerminusInsertCursorShape| and |g:TerminusNormalCursorShape|
+  settings for selecting among "bar", "block" and "underline" cursor shapes.
+
 0.1 (6 July 2015)
 
-- initial release, extracted from my dotfiles
-  (https://github.com/wincent/wincent)
+- Initial release, extracted from my dotfiles
+  (https://github.com/wincent/wincent).
 
 
 -----------------------------------------------------------------------------

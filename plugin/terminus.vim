@@ -26,8 +26,10 @@ let s:xterm=&term =~# 'xterm'
 let s:shape=get(g:, 'TerminusCursorShape', 1)
 if s:shape
   if s:iterm
-    let s:start_insert="\<Esc>]50;CursorShape=1\x7"
-    let s:end_insert="\<Esc>]50;CursorShape=0\x7"
+    let s:insert_shape = +get(g:, 'TerminusInsertCursorShape', 1)
+    let s:normal_shape = +get(g:, 'TerminusNormalCursorShape', 0)
+    let s:start_insert="\<Esc>]50;CursorShape=" . s:insert_shape . "\x7"
+    let s:end_insert="\<Esc>]50;CursorShape=" . s:normal_shape . "\x7"
 
     if s:tmux
       let s:start_insert=terminus#private#wrap(s:start_insert)

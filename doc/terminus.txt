@@ -300,7 +300,7 @@ Terminus is written and maintained by Greg Hurrell <greg@hurrell.net>.
 
 HISTORY                                                      *terminus-history*
 
-0.2 (not yet released)
+0.2 (24 July 2015)
 
 - Added |g:TerminusInsertCursorShape| and |g:TerminusNormalCursorShape|
   settings for selecting among "bar", "block" and "underline" cursor shapes.

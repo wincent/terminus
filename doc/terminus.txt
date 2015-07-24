@@ -243,10 +243,13 @@ along with the vim-clipper plug-in (https://github.com/wincent/vim-clipper).
 The cursor is hard to see in insert mode ~
 
 In insert mode, the cursor becomes a narrow bar, which may be hard to see
-depending on your color scheme and other settings. Reducing visual clutter may
-be helpful in this case. For example, you might turn off 'cursorline' and
-'cursorcolumn' when in insert mode (sample configuration from my dotfiles:
-https://wt.pe/g).
+depending on your color scheme and other settings.
+
+Reducing visual clutter may be helpful in this case. For example, you might
+turn off 'cursorline' and 'cursorcolumn' when in insert mode (sample
+configuration from my dotfiles: https://wt.pe/g). Alternatively, you can try
+a different cursor shapes by changing the |g:TerminusInsertCursorShape| and
+|g:TerminusNormalCursorShape| settings.
 
 
 WEBSITE                                                      *terminus-website*

@@ -17,7 +17,13 @@ if &ttimeoutlen == -1 && &timeoutlen > 50 || &ttimeoutlen > 50
   set ttimeoutlen=50 " speed up O etc in the Terminal
 endif
 
-let s:iterm=exists('$KONSOLE_PROFILE_NAME') || exists('$KONSOLE_DBUS_SESSION') || exists('$ITERM_PROFILE') || exists('$ITERM_SESSION_ID') || exists('g:TerminusAssumeITerm') || filereadable(expand('~/.vim/.assume-iterm'))
+let s:iterm=
+      \ exists('$KONSOLE_PROFILE_NAME') ||
+      \ exists('$KONSOLE_DBUS_SESSION') ||
+      \ exists('$ITERM_PROFILE') ||
+      \ exists('$ITERM_SESSION_ID') ||
+      \ exists('g:TerminusAssumeITerm') ||
+      \ filereadable(expand('~/.vim/.assume-iterm'))
 let s:screen=&term =~# 'screen'
 let s:tmux=exists('$TMUX')
 let s:xterm=&term =~# 'xterm'

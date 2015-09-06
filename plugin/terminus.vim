@@ -25,20 +25,32 @@ let s:xterm=&term =~# 'xterm'
 " Change shape of cursor in insert mode in iTerm 2.
 let s:shape=get(g:, 'TerminusCursorShape', 1)
 if s:shape
+  let s:insert_shape = +get(g:, 'TerminusInsertCursorShape', 1)
+  let s:replace_shape = +get(g:, 'TerminusReplaceCursorShape', 2)
+  let s:normal_shape = +get(g:, 'TerminusNormalCursorShape', 0)
   if s:iterm
-    let s:insert_shape = +get(g:, 'TerminusInsertCursorShape', 1)
-    let s:normal_shape = +get(g:, 'TerminusNormalCursorShape', 0)
     let s:start_insert="\<Esc>]50;CursorShape=" . s:insert_shape . "\x7"
+    let s:replace="\<Esc>]50;CursorShape=" . s:replace_shape . "\x7"
     let s:end_insert="\<Esc>]50;CursorShape=" . s:normal_shape . "\x7"
-
-    if s:tmux
-      let s:start_insert=terminus#private#wrap(s:start_insert)
-      let s:end_insert=terminus#private#wrap(s:end_insert)
-    endif
-
-    let &t_SI=s:start_insert
-    let &t_EI=s:end_insert
+  else
+    let s:cursor_shape_to_vte_shape = {1: 6, 2: 4, 0: 2}
+    let s:insert_shape = s:cursor_shape_to_vte_shape[s:insert_shape]
+    let s:replace_shape = s:cursor_shape_to_vte_shape[s:replace_shape]
+    let s:normal_shape = s:cursor_shape_to_vte_shape[s:normal_shape]
+    let s:start_insert="\<Esc>[" . s:insert_shape . " q"
+    let s:replace="\<Esc>[" . s:replace_shape . " q"
+    let s:end_insert="\<Esc>[" . s:normal_shape . " q"
   endif
+
+  if s:tmux
+    let s:start_insert=terminus#private#wrap(s:start_insert)
+    let s:replace=terminus#private#wrap(s:replace)
+    let s:end_insert=terminus#private#wrap(s:end_insert)
+  endif
+
+  let &t_SI=s:start_insert
+  let &t_SR=s:replace
+  let &t_EI=s:end_insert
 endif
 
 let s:mouse=get(g:, 'TerminusMouse', 1)

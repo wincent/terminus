@@ -125,6 +125,27 @@ OPTIONS                                                      *terminus-options*
   Note: has no effect if cursor shape changing is disabled via the
   |g:TerminusCursorShape| setting.
 
+                                                 *g:TerminusReplaceCursorShape*
+  |g:TerminusReplaceCursorShape|                            number (default: 2)
+
+  Controls the shape of the cursor in replace mode. Possible values are:
+
+  - 0: "block" shape
+  - 1: "bar" shape
+  - 2: "underline" shape
+
+  To override the default, set a new value in your |.vimrc|: >
+
+    let g:TerminusReplaceCursorShape=1
+<
+  The value set here is passed directly through to iTerm, so if future
+  versions of iTerm start to support other possible shapes, Terminus will
+  support those automatically. (And conversely, if you supply an invalid
+  value, iTerm may have undefined behavior.)
+
+  Note: has no effect if cursor shape changing is disabled via the
+  |g:TerminusCursorShape| setting.
+
                                                               *g:TerminusMouse*
   |g:TerminusMouse|                                         boolean (default: 1)
 

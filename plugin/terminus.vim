@@ -36,7 +36,7 @@ if s:shape
   let s:normal_shape=+get(g:, 'TerminusNormalCursorShape', 0)
   if s:iterm
     let s:start_insert="\<Esc>]50;CursorShape=" . s:insert_shape . "\x7"
-    let s:replace="\<Esc>]50;CursorShape=" . s:replace_shape . "\x7"
+    let s:start_replace="\<Esc>]50;CursorShape=" . s:replace_shape . "\x7"
     let s:end_insert="\<Esc>]50;CursorShape=" . s:normal_shape . "\x7"
   else
     let s:cursor_shape_to_vte_shape={1: 6, 2: 4, 0: 2}
@@ -44,18 +44,18 @@ if s:shape
     let s:replace_shape=s:cursor_shape_to_vte_shape[s:replace_shape]
     let s:normal_shape=s:cursor_shape_to_vte_shape[s:normal_shape]
     let s:start_insert="\<Esc>[" . s:insert_shape . " q"
-    let s:replace="\<Esc>[" . s:replace_shape . " q"
+    let s:start_replace="\<Esc>[" . s:replace_shape . " q"
     let s:end_insert="\<Esc>[" . s:normal_shape . " q"
   endif
 
   if s:tmux
     let s:start_insert=terminus#private#wrap(s:start_insert)
-    let s:replace=terminus#private#wrap(s:replace)
+    let s:start_replace=terminus#private#wrap(s:start_replace)
     let s:end_insert=terminus#private#wrap(s:end_insert)
   endif
 
   let &t_SI=s:start_insert
-  let &t_SR=s:replace
+  let &t_SR=s:start_replace
   let &t_EI=s:end_insert
 endif
 

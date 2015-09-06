@@ -26,11 +26,12 @@ particularly when using tmux (https://tmux.github.io/) and iTerm
 (https://www.iterm2.com/) or KDE Konsole (https://konsole.kde.org/), closing
 the gap between terminal and GUI Vim:
 
-1. Cursor shape change in insert mode ~
+1. Cursor shape change in insert and replace mode ~
 
-In insert mode, the cursor shape changes to a thin vertical bar. On leaving
-insert mode, it reverts to the standard "block" shape. Configuration options
-are provided to select among vertical bar, block, and "underline" shapes.
+In insert mode, the cursor shape changes to a thin vertical bar. In replace
+mode, it changes to an underline. On returning to normal mode, it reverts to
+the standard "block" shape. Configuration options are provided to select among
+the different shapes.
 
 2. Improved mouse support ~
 
@@ -80,7 +81,7 @@ OPTIONS                                                      *terminus-options*
   |g:TerminusCursorShape|                                  boolean (default: 1)
 
   Controls whether cursor shape changes are made when entering or leaving
-  insert mode. To disable, set to 0: >
+  insert and replace modes. To disable, set to 0: >
 
     let g:TerminusCursorShape=0
 <
@@ -364,6 +365,7 @@ HISTORY                                                      *terminus-history*
 0.4 (not yet released)
 
 - Enabled support for KDE Konsole (patch from Jan Christoph Ebersbach).
+- Added |g:TerminusReplaceCursorShape| (patch from Jan Christoph Ebersbach).
 
 0.2 (24 July 2015)
 

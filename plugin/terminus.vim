@@ -18,10 +18,10 @@ if &ttimeoutlen == -1 && &timeoutlen > 50 || &ttimeoutlen > 50
 endif
 
 let s:iterm=
-      \ exists('$KONSOLE_PROFILE_NAME') ||
-      \ exists('$KONSOLE_DBUS_SESSION') ||
       \ exists('$ITERM_PROFILE') ||
       \ exists('$ITERM_SESSION_ID') ||
+      \ exists('$KONSOLE_DBUS_SESSION') ||
+      \ exists('$KONSOLE_PROFILE_NAME') ||
       \ exists('g:TerminusAssumeITerm') ||
       \ filereadable(expand('~/.vim/.assume-iterm'))
 let s:screen=&term =~# 'screen'

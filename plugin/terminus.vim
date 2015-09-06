@@ -43,9 +43,9 @@ if s:shape
     let s:insert_shape=s:cursor_shape_to_vte_shape[s:insert_shape]
     let s:replace_shape=s:cursor_shape_to_vte_shape[s:replace_shape]
     let s:normal_shape=s:cursor_shape_to_vte_shape[s:normal_shape]
-    let s:start_insert="\<Esc>[" . s:insert_shape . " q"
-    let s:start_replace="\<Esc>[" . s:replace_shape . " q"
-    let s:end_insert="\<Esc>[" . s:normal_shape . " q"
+    let s:start_insert="\<Esc>[" . s:insert_shape . ' q'
+    let s:start_replace="\<Esc>[" . s:replace_shape . ' q'
+    let s:end_insert="\<Esc>[" . s:normal_shape . ' q'
   endif
 
   if s:tmux

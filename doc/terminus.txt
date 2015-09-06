@@ -23,7 +23,8 @@ INTRO                                                          *terminus-intro*
                                                             *terminus-features*
 Terminus enhances Vim's integration with the terminal in four ways,
 particularly when using tmux (https://tmux.github.io/) and iTerm
-(https://www.iterm2.com/), closing the gap between terminal and GUI Vim:
+(https://www.iterm2.com/) or KDE Konsole (https://konsole.kde.org/), closing
+the gap between terminal and GUI Vim:
 
 1. Cursor shape change in insert mode ~
 
@@ -331,8 +332,17 @@ AUTHORS                                                      *terminus-authors*
 
 Terminus is written and maintained by Greg Hurrell <greg@hurrell.net>.
 
+Other contributors that have submitted patches include (in alphabetical
+order):
+
+  Jan Christoph Ebersbach
+
 
 HISTORY                                                      *terminus-history*
+
+0.4 (not yet released)
+
+- Enabled support for KDE Konsole (patch from Jan Christoph Ebersbach).
 
 0.2 (24 July 2015)
 

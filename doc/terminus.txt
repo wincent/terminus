@@ -3,15 +3,16 @@
 CONTENTS                                                    *terminus-contents*
 
 1. Intro            |terminus-intro|
-2. Installation     |terminus-installation|
-3. Options          |terminus-options|
-4. Overrides        |terminus-overrides|
-5. Troubleshooting  |terminus-troubleshooting|
-6. Website          |terminus-website|
-7. License          |terminus-license|
-8. Development      |terminus-development|
-9. Authors          |terminus-authors|
-10. History         |terminus-history|
+2. Requirements     |terminus-requirements|
+3. Installation     |terminus-installation|
+4. Options          |terminus-options|
+5. Overrides        |terminus-overrides|
+6. Troubleshooting  |terminus-troubleshooting|
+7. Website          |terminus-website|
+8. License          |terminus-license|
+9. Development      |terminus-development|
+10. Authors         |terminus-authors|
+11. History         |terminus-history|
 
 
 INTRO                                                          *terminus-intro*
@@ -51,6 +52,22 @@ from Vim.
 
 Sets up "Bracketed Paste" mode, which means you can forget about manually
 setting the 'paste' option and simply go ahead and paste in any mode.
+
+
+REQUIREMENTS                                            *terminus-requirements*
+
+Terminus was principally developed to enhance Vim's integration with iTerm,
+but it can also improve the experience on other terminals, albeit with some
+limitations:
+
+- iTerm (https://www.iterm2.com/): Fully supported.
+- Konsole (https://konsole.kde.org/): Supports iTerm escape sequences, so
+  Terminus treats it just like iTerm.
+- gnome-terminal (https://wiki.gnome.org/Apps/Terminal) and other terminals
+  using the VTE library (https://github.com/GNOME/vte): Partially supported
+  (for example, supports cursor shape changes but not focus reporting).
+
+For other known limitations and problems, see |terminus-troubleshooting|.
 
 
 INSTALLATION                                            *terminus-installation*
@@ -98,10 +115,10 @@ OPTIONS                                                      *terminus-options*
 
     let g:TerminusInsertCursorShape=0
 <
-  The value set here is passed directly through to iTerm, so if future
-  versions of iTerm start to support other possible shapes, Terminus will
-  support those automatically. (And conversely, if you supply an invalid
-  value, iTerm may have undefined behavior.)
+  The value set here is passed directly through to iTerm (and Konsole), so if
+  future versions of those terminals start to support other possible shapes,
+  Terminus will support those automatically. (And conversely, if you supply an
+  invalid value, the terminal may have undefined behavior.)
 
   Note: has no effect if cursor shape changing is disabled via the
   |g:TerminusCursorShape| setting.
@@ -119,10 +136,10 @@ OPTIONS                                                      *terminus-options*
 
     let g:TerminusNormalCursorShape=2
 <
-  The value set here is passed directly through to iTerm, so if future
-  versions of iTerm start to support other possible shapes, Terminus will
-  support those automatically. (And conversely, if you supply an invalid
-  value, iTerm may have undefined behavior.)
+  The value set here is passed directly through to iTerm (and Konsole), so if
+  future versions of those terminals start to support other possible shapes,
+  Terminus will support those automatically. (And conversely, if you supply an
+  invalid value, the terminal may have undefined behavior.)
 
   Note: has no effect if cursor shape changing is disabled via the
   |g:TerminusCursorShape| setting.
@@ -140,10 +157,10 @@ OPTIONS                                                      *terminus-options*
 
     let g:TerminusReplaceCursorShape=1
 <
-  The value set here is passed directly through to iTerm, so if future
-  versions of iTerm start to support other possible shapes, Terminus will
-  support those automatically. (And conversely, if you supply an invalid
-  value, iTerm may have undefined behavior.)
+  The value set here is passed directly through to iTerm (and Konsole), so if
+  future versions of those terminals start to support other possible shapes,
+  Terminus will support those automatically. (And conversely, if you supply an
+  invalid value, the terminal may have undefined behavior.)
 
   Note: has no effect if cursor shape changing is disabled via the
   |g:TerminusCursorShape| setting.
@@ -178,10 +195,11 @@ OPTIONS                                                      *terminus-options*
                                                         *g:TerminusAssumeITerm*
   |g:TerminusAssumeITerm|                                      any (no default)
 
-  Terminus will try to autodetect when Vim is running inside of iTerm,
-  but it is possible that when running on a remote host via SSH the necessary
-  environment variables (`$ITERM_PROFILE` or `$ITERM_SESSION_ID`) may not be
-  present.
+  Terminus will try to autodetect when Vim is running inside of iTerm or an
+  iTerm-like terminal such as Konsole, but it is possible that when running on
+  a remote host via SSH the necessary environment variables (`$ITERM_PROFILE`,
+  `$ITERM_SESSION_ID`, `$KONSOLE_DBUS_SESSION` or `$KONSOLE_PROFILE_NAME`) may
+  not be present.
 
   In this case, it is possible to signal to Terminus that iTerm is operative by
   doing either of the following:

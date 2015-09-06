@@ -331,8 +331,17 @@ AUTHORS                                                      *terminus-authors*
 
 Terminus is written and maintained by Greg Hurrell <greg@hurrell.net>.
 
+Other contributors that have submitted patches include (in alphabetical
+order):
+
+  Jan Christoph Ebersbach
+
 
 HISTORY                                                      *terminus-history*
+
+0.4 (not yet released)
+
+- Enabled support for KDE Konsole (patch from Jan Christoph Ebersbach).
 
 0.2 (24 July 2015)
 

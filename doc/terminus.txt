@@ -26,11 +26,12 @@ particularly when using tmux (https://tmux.github.io/) and iTerm
 (https://www.iterm2.com/) or KDE Konsole (https://konsole.kde.org/), closing
 the gap between terminal and GUI Vim:
 
-1. Cursor shape change in insert mode ~
+1. Cursor shape change in insert and replace mode ~
 
-In insert mode, the cursor shape changes to a thin vertical bar. On leaving
-insert mode, it reverts to the standard "block" shape. Configuration options
-are provided to select among vertical bar, block, and "underline" shapes.
+In insert mode, the cursor shape changes to a thin vertical bar. In replace
+mode, it changes to an underline. On returning to normal mode, it reverts to
+the standard "block" shape. Configuration options are provided to select among
+the different shapes.
 
 2. Improved mouse support ~
 
@@ -80,7 +81,7 @@ OPTIONS                                                      *terminus-options*
   |g:TerminusCursorShape|                                  boolean (default: 1)
 
   Controls whether cursor shape changes are made when entering or leaving
-  insert mode. To disable, set to 0: >
+  insert and replace modes. To disable, set to 0: >
 
     let g:TerminusCursorShape=0
 <
@@ -117,6 +118,27 @@ OPTIONS                                                      *terminus-options*
   To override the default, set a new value in your |.vimrc|: >
 
     let g:TerminusNormalCursorShape=2
+<
+  The value set here is passed directly through to iTerm, so if future
+  versions of iTerm start to support other possible shapes, Terminus will
+  support those automatically. (And conversely, if you supply an invalid
+  value, iTerm may have undefined behavior.)
+
+  Note: has no effect if cursor shape changing is disabled via the
+  |g:TerminusCursorShape| setting.
+
+                                                 *g:TerminusReplaceCursorShape*
+  |g:TerminusReplaceCursorShape|                            number (default: 2)
+
+  Controls the shape of the cursor in replace mode. Possible values are:
+
+  - 0: "block" shape
+  - 1: "bar" shape
+  - 2: "underline" shape
+
+  To override the default, set a new value in your |.vimrc|: >
+
+    let g:TerminusReplaceCursorShape=1
 <
   The value set here is passed directly through to iTerm, so if future
   versions of iTerm start to support other possible shapes, Terminus will
@@ -343,6 +365,9 @@ HISTORY                                                      *terminus-history*
 0.4 (not yet released)
 
 - Enabled support for KDE Konsole (patch from Jan Christoph Ebersbach).
+- Added |g:TerminusReplaceCursorShape| and made cursor shape substition work
+  with VTE terminals such as gnome-terminal (patch from Jan Christoph
+  Ebersbach).
 
 0.2 (24 July 2015)
 

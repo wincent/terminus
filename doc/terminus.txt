@@ -365,7 +365,9 @@ HISTORY                                                      *terminus-history*
 0.4 (not yet released)
 
 - Enabled support for KDE Konsole (patch from Jan Christoph Ebersbach).
-- Added |g:TerminusReplaceCursorShape| (patch from Jan Christoph Ebersbach).
+- Added |g:TerminusReplaceCursorShape| and made cursor shape substition work
+  with VTE terminals such as gnome-terminal (patch from Jan Christoph
+  Ebersbach).
 
 0.2 (24 July 2015)
 

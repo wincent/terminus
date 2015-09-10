@@ -91,14 +91,27 @@ if s:focus
   execute "set <f21>=\<Esc>[I"
   cnoremap <silent> <f20> <c-\>eterminus#private#focus_lost()<cr>
   cnoremap <silent> <f21> <c-\>eterminus#private#focus_gained()<cr>
-  inoremap <silent> <f20> <c-o>:silent doautocmd <nomodeline> FocusLost %<cr>
-  inoremap <silent> <f21> <c-o>:silent doautocmd <nomodeline> FocusGained %<cr>
-  nnoremap <silent> <f20> :doautocmd <nomodeline> FocusLost %<cr>
-  nnoremap <silent> <f21> :doautocmd <nomodeline> FocusGained %<cr>
-  onoremap <silent> <f20> <Esc>:silent doautocmd <nomodeline> FocusLost %<cr>
-  onoremap <silent> <f21> <Esc>:silent doautocmd <nomodeline> FocusGained %<cr>
-  vnoremap <silent> <f20> <Esc>:silent doautocmd <nomodeline> FocusLost %<cr>gv
-  vnoremap <silent> <f21> <Esc>:silent doautocmd <nomodeline> FocusGained %<cr>gv
+
+  if v:version > 703 || v:version == 703 && has("patch438")
+    " <nomodeline> was added in 7.3.438 (see `:h version7.txt`).
+    inoremap <silent> <f20> <c-o>:silent doautocmd <nomodeline> FocusLost %<cr>
+    inoremap <silent> <f21> <c-o>:silent doautocmd <nomodeline> FocusGained %<cr>
+    nnoremap <silent> <f20> :doautocmd <nomodeline> FocusLost %<cr>
+    nnoremap <silent> <f21> :doautocmd <nomodeline> FocusGained %<cr>
+    onoremap <silent> <f20> <Esc>:silent doautocmd <nomodeline> FocusLost %<cr>
+    onoremap <silent> <f21> <Esc>:silent doautocmd <nomodeline> FocusGained %<cr>
+    vnoremap <silent> <f20> <Esc>:silent doautocmd <nomodeline> FocusLost %<cr>gv
+    vnoremap <silent> <f21> <Esc>:silent doautocmd <nomodeline> FocusGained %<cr>gv
+  else
+    inoremap <silent> <f20> <c-o>:silent doautocmd FocusLost %<cr>
+    inoremap <silent> <f21> <c-o>:silent doautocmd FocusGained %<cr>
+    nnoremap <silent> <f20> :doautocmd FocusLost %<cr>
+    nnoremap <silent> <f21> :doautocmd FocusGained %<cr>
+    onoremap <silent> <f20> <Esc>:silent doautocmd FocusLost %<cr>
+    onoremap <silent> <f21> <Esc>:silent doautocmd FocusGained %<cr>
+    vnoremap <silent> <f20> <Esc>:silent doautocmd FocusLost %<cr>gv
+    vnoremap <silent> <f21> <Esc>:silent doautocmd FocusGained %<cr>gv
+  endif
 endif
 
 let s:paste=get(g:, 'TerminusBracketedPaste', 1)

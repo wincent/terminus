@@ -386,6 +386,8 @@ HISTORY                                                      *terminus-history*
 - Added |g:TerminusReplaceCursorShape| and made cursor shape substition work
   with VTE terminals such as gnome-terminal (patch from Jan Christoph
   Ebersbach).
+- Fixed bug where file modelines were being inappropriately evaluated when on
+  |FocusGained| and |FocusLost| events.
 
 0.2 (24 July 2015)
 

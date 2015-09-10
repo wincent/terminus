@@ -92,7 +92,7 @@ if s:focus
   cnoremap <silent> <f20> <c-\>eterminus#private#focus_lost()<cr>
   cnoremap <silent> <f21> <c-\>eterminus#private#focus_gained()<cr>
 
-  if v:version > 703 || v:version == 703 && has("patch438")
+  if v:version > 703 || v:version == 703 && has('patch438')
     " <nomodeline> was added in 7.3.438 (see `:h version7.txt`).
     inoremap <silent> <f20> <c-o>:silent doautocmd <nomodeline> FocusLost %<cr>
     inoremap <silent> <f21> <c-o>:silent doautocmd <nomodeline> FocusGained %<cr>

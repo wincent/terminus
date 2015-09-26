@@ -55,7 +55,9 @@ if s:shape
   endif
 
   let &t_SI=s:start_insert
-  let &t_SR=s:start_replace
+  if v:version > 704 || v:version == 704 && has('patch687')
+    let &t_SR=s:start_replace
+  end
   let &t_EI=s:end_insert
 endif
 

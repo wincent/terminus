@@ -376,6 +376,7 @@ Other contributors that have submitted patches include (in alphabetical
 order):
 
   Jan Christoph Ebersbach
+  Joe Lencioni
 
 
 HISTORY                                                      *terminus-history*
@@ -388,6 +389,8 @@ HISTORY                                                      *terminus-history*
   Ebersbach).
 - Fixed bug where file modelines were being inappropriately evaluated when on
   |FocusGained| and |FocusLost| events.
+- Added guard for "Unknown option: t_SR" for older versions of Vim (patch from
+  Joe Lencioni).
 
 0.2 (24 July 2015)
 

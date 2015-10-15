@@ -358,8 +358,8 @@ At the moment the release process is manual:
 
 - Publish the code: >
 
-    git push origin master --follow-tags
-    git push github master --follow-tags
+    git push --follow-tags
+    git push github --follow-tags
 
 - Produce the release archive: >
 
@@ -380,6 +380,8 @@ order):
 
 
 HISTORY                                                      *terminus-history*
+
+0.5 (not yet released)
 
 0.4 (15 October 2015)
 

@@ -24,7 +24,7 @@ let s:iterm=
       \ exists('$KONSOLE_PROFILE_NAME') ||
       \ exists('g:TerminusAssumeITerm') ||
       \ filereadable(expand('~/.vim/.assume-iterm'))
-let s:screen=&term =~# 'screen'
+let s:screenish=&term =~# 'screen\|tmux'
 let s:tmux=exists('$TMUX')
 let s:xterm=&term =~# 'xterm'
 
@@ -65,7 +65,7 @@ let s:mouse=get(g:, 'TerminusMouse', 1)
 if s:mouse
   if has('mouse')
     set mouse=a
-    if s:screen || s:xterm
+    if s:screenish || s:xterm
       if has('mouse_sgr')
         set ttymouse=sgr
       else
@@ -121,7 +121,7 @@ if s:paste
   " Make use of Xterm "bracketed paste mode". See:
   "  - http://www.xfree86.org/current/ctlseqs.html#Bracketed%20Paste%20Mode
   "  - http://stackoverflow.com/questions/5585129
-  if s:screen || s:xterm
+  if s:screenish || s:xterm
     " Enable bracketed paste mode on entering Vim.
     let &t_ti.="\e[?2004h"
 

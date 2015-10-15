@@ -381,7 +381,7 @@ order):
 
 HISTORY                                                      *terminus-history*
 
-0.4 (not yet released)
+0.4 (15 October 2015)
 
 - Enabled support for KDE Konsole (patch from Jan Christoph Ebersbach).
 - Added |g:TerminusReplaceCursorShape| and made cursor shape substition work
@@ -391,6 +391,7 @@ HISTORY                                                      *terminus-history*
   |FocusGained| and |FocusLost| events.
 - Added guard for "Unknown option: t_SR" for older versions of Vim (patch from
   Joe Lencioni).
+- Added support for "tmux" `TERM` type.
 
 0.2 (24 July 2015)
 

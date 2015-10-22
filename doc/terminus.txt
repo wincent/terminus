@@ -245,7 +245,7 @@ TROUBLESHOOTING                                      *terminus-troubleshooting*
 
 Some features work in iTerm but not in Apple's Terminal.app ~
 
-The following features are known to work in iTerm but not in Apple's
+The following features are known to work in iTerm but may not work in Apple's
 Terminal.app due to limitations in the latter:
 
 - Cursor shape changes.

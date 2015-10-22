@@ -270,6 +270,12 @@ Mouse support and other features aren't working in tmux ~
 In the iTerm settings, ensure that "Enable mouse reporting" is enabled, and
 the "Report Terminal Type" setting is set to "xterm-256color".
 
+Cursor shape changes and other features aren't working on remote hosts ~
+
+If you are connecting to remote hosts via Mosh (https://mosh.mit.edu/) instead
+of SSH, be aware that Mosh lacks support for some xterm control sequences and
+cannot change the cursor (https://github.com/mobile-shell/mosh/issues/352).
+
 I can't copy text to the clipboard ~
 
 In the iTerm settings, ensure that "Copy to pasteboard on selection" is

@@ -389,6 +389,9 @@ HISTORY                                                      *terminus-history*
 
 0.5 (not yet released)
 
+- Silence unwanted "No matching autocommands" output on gaining/losing focus
+  in normal mode.
+
 0.4 (15 October 2015)
 
 - Enabled support for KDE Konsole (patch from Jan Christoph Ebersbach).

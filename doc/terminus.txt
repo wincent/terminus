@@ -387,7 +387,7 @@ order):
 
 HISTORY                                                      *terminus-history*
 
-0.5 (not yet released)
+1.0 (28 December 2015)
 
 - Silence unwanted "No matching autocommands" output on gaining/losing focus
   in normal mode.

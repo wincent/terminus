@@ -66,10 +66,12 @@ if s:mouse
   if has('mouse')
     set mouse=a
     if s:screenish || s:xterm
-      if has('mouse_sgr')
-        set ttymouse=sgr
-      else
-        set ttymouse=xterm2
+      if !has('nvim')
+        if has('mouse_sgr')
+          set ttymouse=sgr
+        else
+          set ttymouse=xterm2
+        endif
       endif
     endif
   endif

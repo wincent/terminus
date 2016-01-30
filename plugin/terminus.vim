@@ -6,7 +6,7 @@
 if exists('g:TerminusLoaded') || &compatible || v:version < 700
   finish
 endif
-let g:LoupeLoaded=1
+let g:TerminusLoaded=1
 
 " Temporarily set 'cpoptions' to Vim default as per `:h use-cpo-save`.
 let s:cpoptions=&cpoptions

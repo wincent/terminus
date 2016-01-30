@@ -387,6 +387,10 @@ order):
 
 HISTORY                                                      *terminus-history*
 
+1.0.1 (29 January 2016)
+
+- Correctly guard against Terminus being loaded multiple times.
+
 1.0 (28 December 2015)
 
 - Silence unwanted "No matching autocommands" output on gaining/losing focus

@@ -69,8 +69,6 @@ if s:mouse
       if !has('nvim')
         if has('mouse_sgr')
           set ttymouse=sgr
-        else
-          set ttymouse=xterm2
         endif
       endif
     endif

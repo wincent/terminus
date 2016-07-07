@@ -28,7 +28,7 @@ let s:iterm=
 let s:iterm2=
       \ s:iterm &&
       \ exists('$TERM_PROGRAM_VERSION') &&
-      \ match($TERM_PROGRAM_VERSION, '\v^[23456789].') == 0
+      \ match($TERM_PROGRAM_VERSION, '\v^[23456789]\.') == 0
 let s:screenish=&term =~# 'screen\|tmux'
 let s:tmux=exists('$TMUX')
 let s:xterm=&term =~# 'xterm'

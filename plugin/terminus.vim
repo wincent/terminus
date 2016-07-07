@@ -17,13 +17,18 @@ if &ttimeoutlen == -1 && &timeoutlen > 50 || &ttimeoutlen > 50
   set ttimeoutlen=50 " speed up O etc in the Terminal
 endif
 
+let s:konsole=
+      \ exists('$KONSOLE_DBUS_SESSION') ||
+      \ exists('$KONSOLE_PROFILE_NAME')
 let s:iterm=
       \ exists('$ITERM_PROFILE') ||
       \ exists('$ITERM_SESSION_ID') ||
-      \ exists('$KONSOLE_DBUS_SESSION') ||
-      \ exists('$KONSOLE_PROFILE_NAME') ||
       \ exists('g:TerminusAssumeITerm') ||
       \ filereadable(expand('~/.vim/.assume-iterm'))
+let s:iterm2=
+      \ s:iterm &&
+      \ exists('$TERM_PROGRAM_VERSION') &&
+      \ match($TERM_PROGRAM_VERSION, '\v^[23456789].') == 0
 let s:screenish=&term =~# 'screen\|tmux'
 let s:tmux=exists('$TMUX')
 let s:xterm=&term =~# 'xterm'
@@ -34,7 +39,11 @@ if s:shape
   let s:insert_shape=+get(g:, 'TerminusInsertCursorShape', 1)
   let s:replace_shape=+get(g:, 'TerminusReplaceCursorShape', 2)
   let s:normal_shape=+get(g:, 'TerminusNormalCursorShape', 0)
-  if s:iterm
+  if s:iterm && s:iterm2
+    let s:start_insert="\<Esc>]1337;CursorShape=" . s:insert_shape . "\x7"
+    let s:start_replace="\<Esc>]1337;CursorShape=" . s:replace_shape . "\x7"
+    let s:end_insert="\<Esc>]1337;CursorShape=" . s:normal_shape . "\x7"
+  elseif s:iterm || s:konsole
     let s:start_insert="\<Esc>]50;CursorShape=" . s:insert_shape . "\x7"
     let s:start_replace="\<Esc>]50;CursorShape=" . s:replace_shape . "\x7"
     let s:end_insert="\<Esc>]50;CursorShape=" . s:normal_shape . "\x7"

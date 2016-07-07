@@ -387,6 +387,11 @@ order):
 
 HISTORY                                                      *terminus-history*
 
+1.1 (not yet released)
+
+- Use non-deprecated escape sequences when running on sufficiently recent
+  versions of iTerm.
+
 1.0.1 (29 January 2016)
 
 - Correctly guard against Terminus being loaded multiple times.

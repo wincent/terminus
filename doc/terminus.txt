@@ -387,7 +387,7 @@ order):
 
 HISTORY                                                      *terminus-history*
 
-1.1 (not yet released)
+1.1 (13 July 2016)
 
 - Use non-deprecated escape sequences when running on sufficiently recent
   versions of iTerm.

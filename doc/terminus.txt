@@ -169,7 +169,7 @@ OPTIONS                                                      *terminus-options*
   |g:TerminusMouse|                                         boolean (default: 1)
 
   Controls whether Terminus attempts to improve mouse function by setting the
-  'mouse' and 'typemouse' settings. To disable this action, set to 0: >
+  'mouse' and 'ttymouse' settings. To disable this action, set to 0: >
 
     let g:TerminusMouse=0
 <

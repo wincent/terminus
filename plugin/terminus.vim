@@ -13,8 +13,8 @@ let s:cpoptions=&cpoptions
 set cpoptions&vim
 
 set autoread " if not changed in Vim, automatically pick up changes after "git checkout" etc
-if &ttimeoutlen == -1 && &timeoutlen > 50 || &ttimeoutlen > 50
-  set ttimeoutlen=50 " speed up O etc in the Terminal
+if &ttimeoutlen == -1 && &timeoutlen > 10 || &ttimeoutlen > 10
+  set ttimeoutlen=10 " speed up O etc in the Terminal
 endif
 
 let s:konsole=
@@ -139,12 +139,14 @@ if s:paste
     " Disable bracketed paste mode on leaving Vim.
     let &t_te="\e[?2004l" . &t_te
 
-    set pastetoggle=<Esc>[201~
-    inoremap <expr> <Esc>[200~ terminus#private#paste('')
-    nnoremap <expr> <Esc>[200~ terminus#private#paste('i')
-    vnoremap <expr> <Esc>[200~ terminus#private#paste('c')
-    cnoremap <Esc>[200~ <nop>
-    cnoremap <Esc>[201~ <nop>
+    set pastetoggle=<f23>
+    execute "set <f22>=\<Esc>[200~"
+    execute "set <f23>=\<Esc>[201~"
+    inoremap <expr> <f22> terminus#private#paste('')
+    nnoremap <expr> <f22> terminus#private#paste('i')
+    vnoremap <expr> <f22> terminus#private#paste('c')
+    cnoremap <f22> <nop>
+    cnoremap <f23> <nop>
   endif
 endif
 

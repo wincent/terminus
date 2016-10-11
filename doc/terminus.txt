@@ -230,8 +230,8 @@ good "out of the box" experience:
                                                          *terminus-ttimeoutlen*
   'ttimeoutlen'
 
-  Reduced to 50 (milliseconds) to speed of the response of some mappings (for
-  example, |O|) in the terminal. If the effective 'ttimeoulen' is already 50
+  Reduced to 10 (milliseconds) to speed of the response of some mappings (for
+  example, |O|) in the terminal. If the effective 'ttimeoulen' is already 10
   or lower, Terminus leaves this setting untouched.
 
 To override any of these choices, you can place overrides in an
@@ -387,6 +387,10 @@ order):
 
 
 HISTORY                                                      *terminus-history*
+
+next (not yet released)
+
+- Reduce delay on leaving insert mode to 10ms.
 
 1.1 (13 July 2016)
 

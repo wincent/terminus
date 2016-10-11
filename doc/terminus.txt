@@ -383,6 +383,7 @@ order):
 
   Jan Christoph Ebersbach
   Joe Lencioni
+  Jon Parise
 
 
 HISTORY                                                      *terminus-history*

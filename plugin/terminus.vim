@@ -39,7 +39,7 @@ if s:shape
   let s:insert_shape=+get(g:, 'TerminusInsertCursorShape', 1)
   let s:replace_shape=+get(g:, 'TerminusReplaceCursorShape', 2)
   let s:normal_shape=+get(g:, 'TerminusNormalCursorShape', 0)
-  if s:iterm && s:iterm2
+  if s:iterm2
     let s:start_insert="\<Esc>]1337;CursorShape=" . s:insert_shape . "\x7"
     let s:start_replace="\<Esc>]1337;CursorShape=" . s:replace_shape . "\x7"
     let s:end_insert="\<Esc>]1337;CursorShape=" . s:normal_shape . "\x7"

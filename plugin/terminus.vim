@@ -96,7 +96,11 @@ if s:focus
       if s:tmux
         " We may not get FocusGained/FocusLost events, or we may get them late,
         " when they are due to pane creation/destruction.
-        autocmd VimResized * call terminus#private#checkfocus()
+        if has('timers')
+          autocmd VimResized * call terminus#private#schedulecheck()
+        else
+          autocmd VimResized * call terminus#private#checkfocus()
+        endif
       endif
     augroup END
   endif

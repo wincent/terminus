@@ -58,3 +58,20 @@ function! terminus#private#checkfocus() abort
     endif
   endif
 endfunction
+
+function! terminus#private#handletimer(timer) abort
+  if exists('g:TerminusPendingFocusTimer')
+    unlet g:TerminusPendingFocusTimer
+  endif
+  call terminus#private#checkfocus()
+endfunction
+
+function! terminus#private#schedulecheck() abort
+  if exists('g:TerminusPendingFocusTimer')
+    call timer_stop(g:TerminusPendingFocusTimer)
+  endif
+  let g:TerminusPendingFocusTimer=timer_start(
+        \   50,
+        \   'terminus#private#handletimer'
+        \ )
+endfunction

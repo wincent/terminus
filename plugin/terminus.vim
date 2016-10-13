@@ -92,6 +92,12 @@ if s:focus
     augroup Terminus
       autocmd!
       autocmd FocusGained * checktime
+
+      if s:tmux
+        " We may not get FocusGained/FocusLost events, or we may get them late,
+        " when they are due to pane creation/destruction.
+        autocmd VimResized * call terminus#private#checkfocus()
+      endif
     augroup END
   endif
 

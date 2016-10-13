@@ -391,6 +391,8 @@ HISTORY                                                      *terminus-history*
 next (not yet released)
 
 - Reduce delay on leaving insert mode to 10ms.
+- Work-around lag for focus/blur events caused by creation and destruction of
+  tmux splits.
 
 1.1 (13 July 2016)
 

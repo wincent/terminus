@@ -107,8 +107,8 @@ if s:focus
 
   if v:version > 703 || v:version == 703 && has('patch438')
     " <nomodeline> was added in 7.3.438 (see `:h version7.txt`).
-    inoremap <silent> <f20> <c-o>:silent doautocmd <nomodeline> FocusLost %<cr>
-    inoremap <silent> <f21> <c-o>:silent doautocmd <nomodeline> FocusGained %<cr>
+    inoremap <silent> <f20> <c-\><c-o>:silent doautocmd <nomodeline> FocusLost %<cr>
+    inoremap <silent> <f21> <c-\><c-o>:silent doautocmd <nomodeline> FocusGained %<cr>
     nnoremap <silent> <f20> :silent doautocmd <nomodeline> FocusLost %<cr>
     nnoremap <silent> <f21> :silent doautocmd <nomodeline> FocusGained %<cr>
     onoremap <silent> <f20> <Esc>:silent doautocmd <nomodeline> FocusLost %<cr>
@@ -116,8 +116,8 @@ if s:focus
     vnoremap <silent> <f20> <Esc>:silent doautocmd <nomodeline> FocusLost %<cr>gv
     vnoremap <silent> <f21> <Esc>:silent doautocmd <nomodeline> FocusGained %<cr>gv
   else
-    inoremap <silent> <f20> <c-o>:silent doautocmd FocusLost %<cr>
-    inoremap <silent> <f21> <c-o>:silent doautocmd FocusGained %<cr>
+    inoremap <silent> <f20> <c-\><c-o>:silent doautocmd FocusLost %<cr>
+    inoremap <silent> <f21> <c-\><c-o>:silent doautocmd FocusGained %<cr>
     nnoremap <silent> <f20> :silent doautocmd FocusLost %<cr>
     nnoremap <silent> <f21> :silent doautocmd FocusGained %<cr>
     onoremap <silent> <f20> <Esc>:silent doautocmd FocusLost %<cr>

@@ -389,7 +389,7 @@ order):
 
 HISTORY                                                      *terminus-history*
 
-next (not yet released)
+1.2 (21 March 2017)
 
 - Reduce delay on leaving insert mode to 10ms.
 - Work-around lag for focus/blur events caused by creation and destruction of

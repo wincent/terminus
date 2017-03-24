@@ -30,6 +30,7 @@ let s:iterm2=
       \ exists('$TERM_PROGRAM_VERSION') &&
       \ match($TERM_PROGRAM_VERSION, '\v^[2-9]\.') == 0
 let s:screenish=&term =~# 'screen\|tmux'
+let s:terminator=exists('$TERMINATOR_UUID')
 let s:tmux=exists('$TMUX')
 let s:xterm=&term =~# 'xterm'
 
@@ -57,17 +58,19 @@ if s:shape
     let s:end_insert="\<Esc>[" . s:normal_shape . ' q'
   endif
 
-  if s:tmux
-    let s:start_insert=terminus#private#wrap(s:start_insert)
-    let s:start_replace=terminus#private#wrap(s:start_replace)
-    let s:end_insert=terminus#private#wrap(s:end_insert)
-  endif
+  if !s:terminator " https://github.com/wincent/terminus/issues/20
+    if s:tmux
+      let s:start_insert=terminus#private#wrap(s:start_insert)
+      let s:start_replace=terminus#private#wrap(s:start_replace)
+      let s:end_insert=terminus#private#wrap(s:end_insert)
+    endif
 
-  let &t_SI=s:start_insert
-  if v:version > 704 || v:version == 704 && has('patch687')
-    let &t_SR=s:start_replace
-  end
-  let &t_EI=s:end_insert
+    let &t_SI=s:start_insert
+    if v:version > 704 || v:version == 704 && has('patch687')
+      let &t_SR=s:start_replace
+    end
+    let &t_EI=s:end_insert
+  endif
 endif
 
 let s:mouse=get(g:, 'TerminusMouse', 1)

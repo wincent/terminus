@@ -1,6 +1,8 @@
 " Copyright 2015-present Greg Hurrell. All rights reserved.
 " Licensed under the terms of the BSD 2-clause license.
 
+let s:nomodeline=v:version > 703 || v:version == 703 && has('patch438')
+
 function! s:escape(string) abort
   " Double each <Esc>.
   return substitute(a:string, "\<Esc>", "\<Esc>\<Esc>", 'g')
@@ -21,7 +23,11 @@ function! terminus#private#focus_lost() abort
   let l:cmdline=getcmdline()
   let l:cmdpos=getcmdpos()
 
-  silent doautocmd FocusLost %
+  if s:nomodeline
+    silent doautocmd <nomodeline> FocusLost %
+  else
+    silent doautocmd FocusLost %
+  endif
 
   call setcmdpos(l:cmdpos)
   return l:cmdline
@@ -31,9 +37,13 @@ function! terminus#private#focus_gained() abort
   let l:cmdline=getcmdline()
   let l:cmdpos=getcmdpos()
 
-  " Our checktime autocmd will produce:
+  " Use `:silent!` here because our checktime autocmd will produce:
   "   E523: Not allowed here:   checktime
-  silent! doautocmd FocusGained %
+  if s:nomodeline
+    silent! doautocmd <nomodeline> FocusGained %
+  else
+    silent! doautocmd FocusGained %
+  endif
 
   call setcmdpos(l:cmdpos)
   return l:cmdline
@@ -53,7 +63,11 @@ function! terminus#private#checkfocus() abort
       let l:match=matchstr(l:active[0], '\v1 \zs\%\d+$')
       if l:match != ''
         let l:autocmd=(l:match == l:pane_id ? 'FocusGained' : 'FocusLost')
-        execute 'silent! doautocmd ' . l:autocmd . ' %'
+        if s:nomodeline
+          execute 'silent! doautocmd <nomodeline> ' . l:autocmd . ' %'
+        else
+          execute 'silent! doautocmd ' . l:autocmd . ' %'
+        end
       endif
     endif
   endif

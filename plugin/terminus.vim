@@ -36,38 +36,42 @@ let s:xterm=&term =~# 'xterm'
 " Change shape of cursor in insert mode in iTerm 2.
 let s:shape=get(g:, 'TerminusCursorShape', 1)
 if s:shape
-  let s:insert_shape=+get(g:, 'TerminusInsertCursorShape', 1)
-  let s:replace_shape=+get(g:, 'TerminusReplaceCursorShape', 2)
-  let s:normal_shape=+get(g:, 'TerminusNormalCursorShape', 0)
-  if s:iterm2
-    let s:start_insert="\<Esc>]1337;CursorShape=" . s:insert_shape . "\x7"
-    let s:start_replace="\<Esc>]1337;CursorShape=" . s:replace_shape . "\x7"
-    let s:end_insert="\<Esc>]1337;CursorShape=" . s:normal_shape . "\x7"
-  elseif s:iterm || s:konsole
-    let s:start_insert="\<Esc>]50;CursorShape=" . s:insert_shape . "\x7"
-    let s:start_replace="\<Esc>]50;CursorShape=" . s:replace_shape . "\x7"
-    let s:end_insert="\<Esc>]50;CursorShape=" . s:normal_shape . "\x7"
+  if has('nvim')
+    " Nothing to do, should work out of the box on recent versions.
   else
-    let s:cursor_shape_to_vte_shape={1: 6, 2: 4, 0: 2}
-    let s:insert_shape=s:cursor_shape_to_vte_shape[s:insert_shape]
-    let s:replace_shape=s:cursor_shape_to_vte_shape[s:replace_shape]
-    let s:normal_shape=s:cursor_shape_to_vte_shape[s:normal_shape]
-    let s:start_insert="\<Esc>[" . s:insert_shape . ' q'
-    let s:start_replace="\<Esc>[" . s:replace_shape . ' q'
-    let s:end_insert="\<Esc>[" . s:normal_shape . ' q'
-  endif
+    let s:insert_shape=+get(g:, 'TerminusInsertCursorShape', 1)
+    let s:replace_shape=+get(g:, 'TerminusReplaceCursorShape', 2)
+    let s:normal_shape=+get(g:, 'TerminusNormalCursorShape', 0)
+    if s:iterm2
+      let s:start_insert="\<Esc>]1337;CursorShape=" . s:insert_shape . "\x7"
+      let s:start_replace="\<Esc>]1337;CursorShape=" . s:replace_shape . "\x7"
+      let s:end_insert="\<Esc>]1337;CursorShape=" . s:normal_shape . "\x7"
+    elseif s:iterm || s:konsole
+      let s:start_insert="\<Esc>]50;CursorShape=" . s:insert_shape . "\x7"
+      let s:start_replace="\<Esc>]50;CursorShape=" . s:replace_shape . "\x7"
+      let s:end_insert="\<Esc>]50;CursorShape=" . s:normal_shape . "\x7"
+    else
+      let s:cursor_shape_to_vte_shape={1: 6, 2: 4, 0: 2}
+      let s:insert_shape=s:cursor_shape_to_vte_shape[s:insert_shape]
+      let s:replace_shape=s:cursor_shape_to_vte_shape[s:replace_shape]
+      let s:normal_shape=s:cursor_shape_to_vte_shape[s:normal_shape]
+      let s:start_insert="\<Esc>[" . s:insert_shape . ' q'
+      let s:start_replace="\<Esc>[" . s:replace_shape . ' q'
+      let s:end_insert="\<Esc>[" . s:normal_shape . ' q'
+    endif
 
-  if s:tmux
-    let s:start_insert=terminus#private#wrap(s:start_insert)
-    let s:start_replace=terminus#private#wrap(s:start_replace)
-    let s:end_insert=terminus#private#wrap(s:end_insert)
-  endif
+    if s:tmux
+      let s:start_insert=terminus#private#wrap(s:start_insert)
+      let s:start_replace=terminus#private#wrap(s:start_replace)
+      let s:end_insert=terminus#private#wrap(s:end_insert)
+    endif
 
-  let &t_SI=s:start_insert
-  if v:version > 704 || v:version == 704 && has('patch687')
-    let &t_SR=s:start_replace
-  end
-  let &t_EI=s:end_insert
+    let &t_SI=s:start_insert
+    if v:version > 704 || v:version == 704 && has('patch687')
+      let &t_SR=s:start_replace
+    end
+    let &t_EI=s:end_insert
+  endif
 endif
 
 let s:mouse=get(g:, 'TerminusMouse', 1)
@@ -87,7 +91,7 @@ if s:mouse
 endif
 
 let s:focus=get(g:, 'TerminusFocusReporting', 1)
-if s:focus
+if s:focus && !has('nvim')
   if has('autocmd')
     augroup Terminus
       autocmd!

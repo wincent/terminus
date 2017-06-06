@@ -401,6 +401,10 @@ order):
 
 HISTORY                                                      *terminus-history*
 
+1.3 (6 June 2017)
+
+- Add support for Neovim.
+
 1.2 (21 March 2017)
 
 - Reduce delay on leaving insert mode to 10ms.

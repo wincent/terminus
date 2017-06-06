@@ -4,7 +4,7 @@
 
 # Terminus
 
-Terminus enhances Vim's integration with the terminal in four ways, particularly when using [tmux](https://tmux.github.io/) and [iTerm](https://www.iterm2.com/) or [KDE Konsole](https://konsole.kde.org/), closing the gap between terminal and GUI Vim:
+Terminus enhances Vim's and Neovim's integration with the terminal in four ways, particularly when using [tmux](https://tmux.github.io/) and [iTerm](https://www.iterm2.com/) or [KDE Konsole](https://konsole.kde.org/), closing the gap between terminal and GUI Vim:
 
 ## Cursor shape change in insert and replace mode
 

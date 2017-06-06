@@ -91,7 +91,7 @@ if s:mouse
 endif
 
 let s:focus=get(g:, 'TerminusFocusReporting', 1)
-if s:focus && !has('nvim')
+if s:focus
   if has('autocmd')
     augroup Terminus
       autocmd!

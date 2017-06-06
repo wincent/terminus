@@ -8,11 +8,12 @@ CONTENTS                                                    *terminus-contents*
 4. Options          |terminus-options|
 5. Overrides        |terminus-overrides|
 6. Troubleshooting  |terminus-troubleshooting|
-7. Website          |terminus-website|
-8. License          |terminus-license|
-9. Development      |terminus-development|
-10. Authors         |terminus-authors|
-11. History         |terminus-history|
+7. FAQ              |terminus-faq|
+8. Website          |terminus-website|
+9. License          |terminus-license|
+10. Development      |terminus-development|
+11. Authors         |terminus-authors|
+12. History         |terminus-history|
 
 
 INTRO                                                          *terminus-intro*
@@ -298,6 +299,17 @@ turn off 'cursorline' and 'cursorcolumn' when in insert mode (sample
 configuration from my dotfiles: https://wt.pe/g). Alternatively, you can try
 a different cursor shapes by changing the |g:TerminusInsertCursorShape| and
 |g:TerminusNormalCursorShape| settings.
+
+
+FAQ                                                              *terminus-faq*
+
+Does Terminus work with Neovim? ~
+
+Yes, although Terminus has to do much less work in Neovim because Neovim
+has better terminal integration out of the box. Specifically, Terminus
+doesn't need to set up cursor shape changes or improved mouse support in
+Neovim, but it does set up |:checktime| and |'autoread'| to make focus
+reporting more useful, and also makes bracketed paste work in all modes.
 
 
 WEBSITE                                                      *terminus-website*

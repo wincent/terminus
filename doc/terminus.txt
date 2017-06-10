@@ -309,7 +309,7 @@ Yes, although Terminus has to do much less work in Neovim because Neovim
 has better terminal integration out of the box. Specifically, Terminus
 doesn't need to set up cursor shape changes or improved mouse support in
 Neovim, but it does set up |:checktime| and |'autoread'| to make focus
-reporting more useful, and also makes bracketed paste work in all modes.
+reporting more useful.
 
 
 WEBSITE                                                      *terminus-website*

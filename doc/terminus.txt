@@ -231,8 +231,8 @@ good "out of the box" experience:
                                                          *terminus-ttimeoutlen*
   'ttimeoutlen'
 
-  Reduced to 10 (milliseconds) to speed of the response of some mappings (for
-  example, |O|) in the terminal. If the effective 'ttimeoulen' is already 10
+  Reduced to 10 (milliseconds) to speed up the response of some mappings (for
+  example, |O|) in the terminal. If the effective 'ttimeoutlen' is already 10
   or lower, Terminus leaves this setting untouched.
 
 To override any of these choices, you can place overrides in an

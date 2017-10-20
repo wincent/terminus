@@ -95,7 +95,8 @@ if s:focus
   if has('autocmd')
     augroup Terminus
       autocmd!
-      autocmd FocusGained * checktime
+      " Use silent! to avoid potential E11 if the command-line window is open.
+      autocmd FocusGained * silent! checktime
 
       if s:tmux
         " We may not get FocusGained/FocusLost events, or we may get them late,

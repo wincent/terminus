@@ -401,11 +401,16 @@ order):
 
 HISTORY                                                      *terminus-history*
 
-1.3 (6 June 2017)
+master (not yet released) ~
+
+- Suppress |E11| errors when switching focus and the |command-line-window| is
+  open (https://github.com/wincent/terminus/issues/33).
+
+1.3 (6 June 2017) ~
 
 - Add support for Neovim.
 
-1.2 (21 March 2017)
+1.2 (21 March 2017) ~
 
 - Reduce delay on leaving insert mode to 10ms.
 - Work-around lag for focus/blur events caused by creation and destruction of
@@ -413,21 +418,21 @@ HISTORY                                                      *terminus-history*
 - Tweak insert mode mappings to work correctly when omni completion is
   active (https://github.com/wincent/terminus/pull/18).
 
-1.1 (13 July 2016)
+1.1 (13 July 2016) ~
 
 - Use non-deprecated escape sequences when running on sufficiently recent
   versions of iTerm.
 
-1.0.1 (29 January 2016)
+1.0.1 (29 January 2016) ~
 
 - Correctly guard against Terminus being loaded multiple times.
 
-1.0 (28 December 2015)
+1.0 (28 December 2015) ~
 
 - Silence unwanted "No matching autocommands" output on gaining/losing focus
   in normal mode.
 
-0.4 (15 October 2015)
+0.4 (15 October 2015) ~
 
 - Enabled support for KDE Konsole (patch from Jan Christoph Ebersbach).
 - Added |g:TerminusReplaceCursorShape| and made cursor shape substition work
@@ -439,12 +444,12 @@ HISTORY                                                      *terminus-history*
   Joe Lencioni).
 - Added support for "tmux" `TERM` type.
 
-0.2 (24 July 2015)
+0.2 (24 July 2015) ~
 
 - Added |g:TerminusInsertCursorShape| and |g:TerminusNormalCursorShape|
   settings for selecting among "bar", "block" and "underline" cursor shapes.
 
-0.1 (6 July 2015)
+0.1 (6 July 2015) ~
 
 - Initial release, extracted from my dotfiles
   (https://github.com/wincent/wincent).

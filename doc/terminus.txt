@@ -266,6 +266,12 @@ set to "on" in the `~/.tmux.conf` file: >
 
   set -g focus-events on
 
+There is a delay on leaving insert mode inside tmux ~
+
+You may need to set `escape-time` to 0 in your `~/.tmux.conf` file: >
+
+  set -s escape-time 0
+
 Mouse support and other features aren't working in tmux ~
 
 In the iTerm settings, ensure that "Enable mouse reporting" is enabled, and

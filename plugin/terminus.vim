@@ -122,6 +122,13 @@ if s:focus
     cnoremap <silent> <f20> <c-\>eterminus#private#focus_lost()<cr>
     cnoremap <silent> <f21> <c-\>eterminus#private#focus_gained()<cr>
 
+    if has('terminal')
+      " Trigger FocusLost/Gained autocommands while in terminal (gvim like).
+      " Indirectly fixes scrambled ??? characters in Vim terminals.
+      tmap <expr> <f20> terminus#private#term_focus_lost()
+      tmap <expr> <f21> terminus#private#term_focus_gained()
+    endif
+
     if v:version > 703 || v:version == 703 && has('patch438')
       " <nomodeline> was added in 7.3.438 (see `:h version7.txt`).
       inoremap <silent> <f20> <c-\><c-o>:silent doautocmd <nomodeline> FocusLost %<cr>

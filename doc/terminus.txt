@@ -402,6 +402,7 @@ order):
   Jan Christoph Ebersbach
   Joe Lencioni
   Jon Parise
+  Peteris Krumins
   Rastislav Barlik
 
 
@@ -409,6 +410,8 @@ HISTORY                                                      *terminus-history*
 
 master (not yet released) ~
 
+- Make Bracketed Paste mode work in urxvt (patch from Peteris Krumins,
+  https://github.com/wincent/terminus/pull/43).
 - Suppress |E11| errors when switching focus and the |command-line-window| is
   open (https://github.com/wincent/terminus/issues/33).
 

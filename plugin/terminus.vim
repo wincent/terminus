@@ -32,6 +32,7 @@ let s:iterm2=
 let s:screenish=&term =~# 'screen\|tmux'
 let s:tmux=exists('$TMUX')
 let s:xterm=&term =~# 'xterm'
+let s:urxvt=&term =~# 'rxvt-unicode'
 
 " Change shape of cursor in insert mode in iTerm 2.
 let s:shape=get(g:, 'TerminusCursorShape', 1)
@@ -149,7 +150,7 @@ if s:paste
   " Make use of Xterm "bracketed paste mode". See:
   "  - http://www.xfree86.org/current/ctlseqs.html#Bracketed%20Paste%20Mode
   "  - http://stackoverflow.com/questions/5585129
-  if s:screenish || s:xterm
+  if s:screenish || s:xterm || s:urxvt
     " Enable bracketed paste mode on entering Vim.
     let &t_ti.="\e[?2004h"
 

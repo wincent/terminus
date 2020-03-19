@@ -11,7 +11,7 @@ CONTENTS                                                    *terminus-contents*
 7. FAQ              |terminus-faq|
 8. Website          |terminus-website|
 9. License          |terminus-license|
-10. Development      |terminus-development|
+10. Development     |terminus-development|
 11. Authors         |terminus-authors|
 12. History         |terminus-history|
 

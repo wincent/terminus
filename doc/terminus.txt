@@ -322,10 +322,6 @@ WEBSITE                                                      *terminus-website*
 
 The official Terminus source code repo is at:
 
-  http://git.wincent.com/terminus.git
-
-A mirror exists at:
-
   https://github.com/wincent/terminus
 
 Official releases are listed at:

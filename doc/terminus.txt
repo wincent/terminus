@@ -414,6 +414,8 @@ master (not yet released) ~
   https://github.com/wincent/terminus/pull/43).
 - Suppress |E11| errors when switching focus and the |command-line-window| is
   open (https://github.com/wincent/terminus/issues/33).
+- Avoid unwanted characters appearing in Vim terminal on focus (patch from
+  "Neui", https://github.com/wincent/terminus/pull/39).
 
 1.3 (6 June 2017) ~
 

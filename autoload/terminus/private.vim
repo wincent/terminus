@@ -49,6 +49,24 @@ function! terminus#private#focus_gained() abort
   return l:cmdline
 endfunction
 
+function! terminus#private#term_focus_lost() abort
+  if s:nomodeline
+    silent doautocmd <nomodeline> FocusLost %
+  else
+    silent doautocmd FocusLost %
+  endif
+  return '' " It's executed as a tmap <expr>, so return nothing to type
+endfunction
+
+function! terminus#private#term_focus_gained() abort
+  if s:nomodeline
+    silent! doautocmd <nomodeline> FocusGained %
+  else
+    silent! doautocmd FocusGained %
+  endif
+  return '' " It's executed as a tmap <expr>, so return nothing to type
+endfunction
+
 function! terminus#private#paste(ret) abort
   set paste
   return a:ret

@@ -408,7 +408,7 @@ order):
 
 HISTORY                                                      *terminus-history*
 
-master (not yet released) ~
+main (not yet released) ~
 
 - Make Bracketed Paste mode work in urxvt (patch from Peteris Krumins,
   https://github.com/wincent/terminus/pull/43).

@@ -24,4 +24,4 @@ Sets up "Bracketed Paste" mode, which means you can forget about manually settin
 
 ---
 
-For more information, see [the documentation](https://github.com/wincent/terminus/blob/master/doc/terminus.txt).
+For more information, see [the documentation](https://github.com/wincent/terminus/blob/main/doc/terminus.txt).

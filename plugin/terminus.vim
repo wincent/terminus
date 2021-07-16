@@ -20,6 +20,7 @@ endif
 let s:konsole=
       \ exists('$KONSOLE_DBUS_SESSION') ||
       \ exists('$KONSOLE_PROFILE_NAME')
+let s:konsolev=exists('$KONSOLE_VERSION') ? $KONSOLE_VERSION : 0
 let s:iterm=
       \ exists('$ITERM_PROFILE') ||
       \ exists('$ITERM_SESSION_ID') ||
@@ -47,24 +48,34 @@ if s:shape
       let s:start_insert="\<Esc>]1337;CursorShape=" . s:insert_shape . "\x7"
       let s:start_replace="\<Esc>]1337;CursorShape=" . s:replace_shape . "\x7"
       let s:end_insert="\<Esc>]1337;CursorShape=" . s:normal_shape . "\x7"
-    elseif s:iterm || s:konsole
+    elseif s:iterm || (s:konsole && s:konsolev < 180770)
       let s:start_insert="\<Esc>]50;CursorShape=" . s:insert_shape . "\x7"
       let s:start_replace="\<Esc>]50;CursorShape=" . s:replace_shape . "\x7"
       let s:end_insert="\<Esc>]50;CursorShape=" . s:normal_shape . "\x7"
     else
-      let s:cursor_shape_to_vte_shape={1: 6, 2: 4, 0: 2}
+      let s:blinking=get(g:, 'TerminusCursorBlinking', 1)
+      if s:blinking
+        let s:cursor_shape_to_vte_shape={1: 5, 2: 3, 0: 1}
+      else
+        let s:cursor_shape_to_vte_shape={1: 6, 2: 4, 0: 2}
+      endif
       let s:insert_shape=s:cursor_shape_to_vte_shape[s:insert_shape]
       let s:replace_shape=s:cursor_shape_to_vte_shape[s:replace_shape]
       let s:normal_shape=s:cursor_shape_to_vte_shape[s:normal_shape]
       let s:start_insert="\<Esc>[" . s:insert_shape . ' q'
       let s:start_replace="\<Esc>[" . s:replace_shape . ' q'
       let s:end_insert="\<Esc>[" . s:normal_shape . ' q'
+      " Non-standard control sequence to restore the default cursor shape.
+      let s:restore_cursor="\<Esc>[0 q"
     endif
 
     if s:tmux
       let s:start_insert=terminus#private#wrap(s:start_insert)
       let s:start_replace=terminus#private#wrap(s:start_replace)
       let s:end_insert=terminus#private#wrap(s:end_insert)
+      if exists("s:restore_cursor")
+        let s:restore_cursor=terminus#private#wrap(s:restore_cursor)
+      endif
     endif
 
     let &t_SI=s:start_insert
@@ -72,6 +83,9 @@ if s:shape
       let &t_SR=s:start_replace
     end
     let &t_EI=s:end_insert
+    if exists("s:restore_cursor")
+      let &t_te.=s:restore_cursor
+    endif
   endif
 endif
 

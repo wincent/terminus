@@ -79,7 +79,7 @@ let s:mouse=get(g:, 'TerminusMouse', 1)
 if s:mouse
   if has('mouse')
     set mouse=a
-    if s:screenish || s:xterm
+    if s:screenish || s:xterm || s:iterm2
       if !has('nvim')
         if has('mouse_sgr')
           set ttymouse=sgr

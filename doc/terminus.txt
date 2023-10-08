@@ -320,11 +320,7 @@ reporting more useful.
 
 WEBSITE                                                      *terminus-website*
 
-The official Terminus source code repo is at:
-
-  http://git.wincent.com/terminus.git
-
-A mirror exists at:
+Source code:
 
   https://github.com/wincent/terminus
 

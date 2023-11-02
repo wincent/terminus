@@ -103,6 +103,14 @@ OPTIONS                                                      *terminus-options*
 
     let g:TerminusCursorShape=0
 <
+                                                    *g:TerminusCursorBlinking*
+  |g:TerminusCursorBlinking|                               boolean (default: 1)
+
+  Controls whether cursor should blink if supported by the terminal. To
+  disable, set to 0: >
+
+    let g:TerminusCursorBlinking=0
+<
                                                   *g:TerminusInsertCursorShape*
   |g:TerminusInsertCursorShape|                             number (default: 1)
 

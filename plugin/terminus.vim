@@ -153,7 +153,7 @@ if s:focus
 endif
 
 let s:paste=get(g:, 'TerminusBracketedPaste', 1)
-if s:paste
+if s:paste && !has('nvim')
   " Make use of Xterm "bracketed paste mode". See:
   "  - http://www.xfree86.org/current/ctlseqs.html#Bracketed%20Paste%20Mode
   "  - http://stackoverflow.com/questions/5585129
